@@ -12,11 +12,9 @@ namespace AppHttpClient
         public static void Main(string[] args)
         {
             Console.WriteLine("------------------------------------");
-            Console.WriteLine("-------- INTERNET GREATNESS --------");
+            Console.WriteLine("------- INTERNET AWESOMENESS -------");
             Console.WriteLine("------------------------------------");
-
-
-
+            
             string sURL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=space";
 
             WebRequest wrGETURL;
