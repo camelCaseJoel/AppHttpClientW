@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Net;
 using System.IO;
+using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace AppHttpClient
 {
@@ -48,11 +51,13 @@ namespace AppHttpClient
 
             string jsonStringResponse = objReader.ReadLine();
 
-            Console.WriteLine( jsonStringResponse );
+            var infoObject = (JArray)JsonConvert.DeserializeObject( jsonStringResponse );
+
+            Console.WriteLine( infoObject );
 
 
 
-
+            Console.ReadLine();
             //string sLine = "";
             //int i = 0;
 
