@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 
 namespace AppHttpClientW
 {
-    public static class MyRequests
+    static class MyRequests
     {
-        public static JArray WikipediaRequest( string searchString )
+        public static WikiResult WikipediaRequest( string searchString )
         {
 
             string sURL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + searchString;
@@ -36,7 +36,7 @@ namespace AppHttpClientW
 
             var infoObject = (JArray)JsonConvert.DeserializeObject(jsonStringResponse);
 
-            return infoObject;
+            return new WikiResult( infoObject );
         }
     }
 }

@@ -18,9 +18,16 @@ namespace AppHttpClientW
             Console.WriteLine("------- INTERNET AWESOMENESS -------");
             Console.WriteLine("------------------------------------");
 
-            JArray wikiResult;
-            wikiResult =  MyRequests.WikipediaRequest("dogs");
-            Render.WikipediaPrintResults( wikiResult );
+            WikiResult result;
+            WikiResult result2;
+
+            result =  MyRequests.WikipediaRequest("dogs");
+            result.Render();
+
+
+            result2 = MyRequests.WikipediaRequest("paper");
+            result2.Render();
+
 
            
             

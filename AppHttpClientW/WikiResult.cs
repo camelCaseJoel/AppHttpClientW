@@ -23,6 +23,6 @@ namespace AppHttpClientW
             Console.WriteLine(_data[1]);
             Console.WriteLine(_data[2]);
         }
-        //private _data = 
+        
     }
 }
