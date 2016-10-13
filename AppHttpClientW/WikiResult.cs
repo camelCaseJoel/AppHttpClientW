@@ -19,9 +19,18 @@ namespace AppHttpClientW
 
         public void Render()
         {
-            Console.WriteLine(_data[0]);
-            Console.WriteLine(_data[1]);
-            Console.WriteLine(_data[2]);
+            int length = _data[1].Count();
+            int index = 0;
+            while(index < length)
+            {
+                Console.WriteLine("-----------> Result: " + index);
+                Console.WriteLine(_data[1][index]);
+                Console.WriteLine(_data[2][index]);
+                Console.WriteLine(_data[3][index]);
+                Console.WriteLine(" ");
+                index++;
+            }
+
         }
         
     }

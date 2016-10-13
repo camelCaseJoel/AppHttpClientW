@@ -19,18 +19,11 @@ namespace AppHttpClientW
             Console.WriteLine("------------------------------------");
 
             WikiResult result;
-            WikiResult result2;
-
+            
             result =  MyRequests.WikipediaRequest("dogs");
             result.Render();
 
 
-            result2 = MyRequests.WikipediaRequest("paper");
-            result2.Render();
-
-
-           
-            
             
         }
     }
