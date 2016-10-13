@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 
-namespace AppHttpClient
+namespace AppHttpClientW
 {
     public class Program
     {
@@ -18,33 +18,19 @@ namespace AppHttpClient
             Console.WriteLine("------- INTERNET AWESOMENESS -------");
             Console.WriteLine("------------------------------------");
             
-            string sURL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=space";
+            string sURL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=arcade";
 
             WebRequest wrGETURL;
             wrGETURL = WebRequest.Create(sURL);
 
-
-
-
-
-            //WebProxy myProxy = new WebProxy("myproxy", 80);
-            //myProxy.BypassProxyOnLocal = true;
-
-            //wrGETURL.Proxy = myProxy;
-
-
+            
 
             // Making the request
             WebResponse response;
             response = wrGETURL.GetResponseAsync().Result;
 
             Stream respStream = response.GetResponseStream();
-
-            //Console.WriteLine(respStream);
-
-
-
-
+            
 
             //Reading and printing data to console -----------------------
             StreamReader objReader = new StreamReader(respStream);
@@ -53,26 +39,14 @@ namespace AppHttpClient
 
             var infoObject = (JArray)JsonConvert.DeserializeObject( jsonStringResponse );
 
-            Console.WriteLine( infoObject );
+            Console.WriteLine( infoObject[0] );
+            Console.WriteLine( infoObject[1] );
+            Console.WriteLine( infoObject[2] );
 
 
-
-            Console.ReadLine();
-            //string sLine = "";
-            //int i = 0;
-
-            //while (sLine != null)
-            //{
-            //    i++;
-            //    sLine = objReader.ReadLine();
-
-
-            //    if (sLine != null)
-            //        Console.WriteLine("{0}:{1}", i, sLine);
-            //}
-
-
-
+            Render.PrintResults();
+            
+            
         }
     }
 }
