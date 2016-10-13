@@ -23,11 +23,15 @@ namespace AppHttpClientW
             int index = 0;
             while(index < length)
             {
-                Console.WriteLine("-----------> Result: " + index);
-                Console.WriteLine(_data[1][index]);
-                Console.WriteLine(_data[2][index]);
+                
+                Console.WriteLine("-----> " + index + " <-------------------------------------");
+                Console.WriteLine("----->" + ((string)_data[1][index]).ToUpper() );
+                //Console.WriteLine(" ");
+                //Console.WriteLine(_data[2][index]);
+                //Console.WriteLine(" ");
                 Console.WriteLine(_data[3][index]);
                 Console.WriteLine(" ");
+                
                 index++;
             }
 

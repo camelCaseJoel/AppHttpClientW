@@ -14,9 +14,11 @@ namespace AppHttpClientW
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("------- INTERNET AWESOMENESS -------");
-            Console.WriteLine("------------------------------------");
+            Console.SetWindowSize(60, 50);
+
+            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("------------- INTERNET AWESOMENESS ------------");
+            Console.WriteLine("-----------------------------------------------");
 
             WikiResult result;
             
