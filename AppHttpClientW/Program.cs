@@ -16,9 +16,9 @@ namespace AppHttpClientW
         {
             Console.SetWindowSize(60, 50);
 
-            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("===============================================");
             Console.WriteLine("------------- INTERNET AWESOMENESS ------------");
-            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("===============================================");
 
             WikiResult result;
             
