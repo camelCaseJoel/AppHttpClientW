@@ -19,10 +19,15 @@ namespace AppHttpClientW
             Console.WriteLine("===============================================");
             Console.WriteLine("------------- INTERNET AWESOMENESS ------------");
             Console.WriteLine("===============================================");
+            Console.WriteLine("Please enter your search terms and PRESS ENTER");
+            
+
+            string searchString;
+            searchString = Console.ReadLine();
+
 
             WikiResult result;
-            
-            result =  MyRequests.WikipediaRequest("dogs");
+            result =  MyRequests.WikipediaRequest(searchString);
             result.Render();
 
 
