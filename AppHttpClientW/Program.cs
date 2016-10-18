@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json.Serialization;
@@ -31,7 +32,20 @@ namespace AppHttpClientW
             result.Render();
 
 
-            
+            // ------------------------------- Database stuff
+            // ------------------------------- Database stuff
+            // ------------------------------- Database stuff
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Server=LAPTOP-3NG87PA6;Database=CoolConsoleAppClient;User Id=sa;Password = P@55w0rdP@55w0rd;";
+
+            conn.Open();
+
+            // use the connection here
+            SqlCommand insertCommand = new SqlCommand("INSERT INTO Searches (name) VALUES (kitty)", conn);
+
+            conn.Close();
+            conn.Dispose();
         }
     }
 }
