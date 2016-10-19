@@ -12,8 +12,7 @@ namespace AppHttpClientW
     {
         public static void saveDataToDataBase( JArray data )
         {
-            Console.WriteLine(data);
-
+            
 
             //=========================== Connection to Database
             SqlConnection conn = new SqlConnection();
@@ -23,35 +22,47 @@ namespace AppHttpClientW
             conn.Open();
 
             //----------------------------------------------------------------------------------
+            int totalSuccessRows = 0;
+            int length = data[1].Count();
+            int index = 0;
+            while (index < length)
+            {
 
-            //int length = data[1].Count();
-            //int index = 0;
-            //while (index < length)
-            //{
+                Console.WriteLine("-----> " + index + " <-------------------------------------");
+                Console.WriteLine("----->" + ((string)data[1][index]).ToUpper());
 
-            //    Console.WriteLine("-----> " + index + " <-------------------------------------");
-            //    Console.WriteLine("----->" + ((string)data[1][index]).ToUpper());
-            //    //Console.WriteLine(" ");
-            //    //Console.WriteLine(_data[2][index]);
-            //    //Console.WriteLine(" ");
-            //    Console.WriteLine(data[3][index]);
-            //    Console.WriteLine(" ");
 
-            //    index++;
-            //}
+                // use the connection here
+                SqlCommand insertCommand = new SqlCommand("INSERT INTO Articles (name, url, description) VALUES (@0, @1, @2)", conn);
 
-            // use the connection here
-            SqlCommand insertCommand = new SqlCommand("INSERT INTO Articles (name, url, description) VALUES (@0, @1, @2)", conn);
+                insertCommand.Parameters.Add(   new SqlParameter( "0", (string)data[1][index] )   );
+                insertCommand.Parameters.Add(   new SqlParameter( "1", (string)data[3][index] )   );
+                insertCommand.Parameters.Add(   new SqlParameter( "2", (string)data[2][index] )   );
 
-            insertCommand.Parameters.Add(new SqlParameter("0", "From program XXX"));
-            insertCommand.Parameters.Add(new SqlParameter("1", "www.fromprogram.com"));
-            insertCommand.Parameters.Add(new SqlParameter("2", "From the program I'm building!, hahahahahahahah"));
-        
 
-            var rowsAffected = insertCommand.ExecuteNonQuery();
-            Console.WriteLine("NUMBER OF RESULTS SAVED: " + rowsAffected);
+                bool success;
+                var rowsAffected = insertCommand.ExecuteNonQuery();
+                if ( rowsAffected == 1 )
+                {
+                    success = true;
+                    totalSuccessRows++;
+                }
+                else
+                {
+                    success = false;
+                }
+                Console.WriteLine("RESULT SAVED? --> : " + success);
+
+
+
+                index++;
+            }
+
+
 
             //-----------------------------------------------------------------------------------
+
+            Console.WriteLine( "Number of Total rows affected: " + totalSuccessRows );
 
 
             //==> Close
