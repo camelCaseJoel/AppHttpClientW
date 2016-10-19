@@ -36,6 +36,11 @@ namespace AppHttpClientW
             }
 
         }
+        // -----Setters and Getters
+        public JArray getData()
+        {
+            return _data;
+        }
         
     }
 }
