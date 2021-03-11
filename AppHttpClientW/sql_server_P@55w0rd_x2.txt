@@ -1,3 +1,0 @@
-sql server password user: sa
-
-P@55w0rdP@55w0rd
